@@ -54,17 +54,9 @@ chmod +x install.sh deploy.sh
 ./install.sh
 ./deploy.sh
 
-# 5) Setup git config
+# 5) Install Claude Code
 echo ""
-echo "=== [5/6] Configuring git ==="
-read -p "Enter your git email: " GIT_EMAIL
-read -p "Enter your git name: " GIT_NAME
-git config --global user.email "$GIT_EMAIL"
-git config --global user.name "$GIT_NAME"
-
-# 6) Install Claude Code
-echo ""
-echo "=== [6/6] Installing Claude Code ==="
+echo "=== [5/5] Installing Claude Code ==="
 sudo npm install -g @anthropic-ai/claude-code
 
 echo ""
@@ -74,7 +66,10 @@ echo "=============================================="
 echo ""
 echo "Next steps:"
 echo "  1. Reconnect your terminal or run 'zsh'"
-echo "  2. Run 'claude' to authenticate Claude Code"
+echo "  2. Configure git:"
+echo "       git config --global user.name 'Your Name'"
+echo "       git config --global user.email 'you@example.com'"
 echo "  3. Generate SSH key for GitHub: ssh-keygen -t ed25519"
-echo "     Then add to GitHub: cat ~/.ssh/id_ed25519.pub"
+echo "       Then add to GitHub: cat ~/.ssh/id_ed25519.pub"
+echo "  4. Run 'claude' to authenticate Claude Code"
 echo ""
