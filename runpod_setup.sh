@@ -1,6 +1,6 @@
 #!/bin/bash
 # Full setup script for RunPod Slurm cluster
-# Usage: curl -s https://raw.githubusercontent.com/dillonplunkett/dotfiles/main/runpod_setup.sh | bash
+# Usage: curl -s https://raw.githubusercontent.com/dillonplunkett/runpod_dotfiles/main/runpod_setup.sh | bash
 
 set -e
 
@@ -47,7 +47,7 @@ echo ""
 echo "=== [4/6] Setting up dotfiles ==="
 cd "$VAST_DIR/git"
 if [[ ! -d "dotfiles" ]]; then
-    git clone https://github.com/dillonplunkett/dotfiles.git
+    git clone https://github.com/dillonplunkett/runpod_dotfiles.git dotfiles
 fi
 cd dotfiles
 chmod +x install.sh deploy.sh
