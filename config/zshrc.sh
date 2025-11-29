@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -22,7 +23,7 @@ HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(
   git vscode z zsh-autosuggestions zsh-syntax-highlighting
-  zsh-history-substring-search fzf
+  zsh-history-substring-search
 )
 
 # zsh-completions has to be loaded like this
@@ -48,6 +49,10 @@ export UV_CACHE_DIR=/workspace-vast/$(whoami)/.cache/uv
 
 # Auto-activate venv if it exists
 [[ -f "/workspace-vast/$(whoami)/envs/.venv/bin/activate" ]] && source "/workspace-vast/$(whoami)/envs/.venv/bin/activate"
+
+# Initialize fzf if installed (for Ctrl+R history search, etc.)
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+command -v fzf &> /dev/null && eval "$(fzf --zsh 2>/dev/null)"
 
 # Personal aliases
 alias zshconfig="code ~/.zshrc"
